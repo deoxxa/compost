@@ -1,0 +1,43 @@
+<!DOCTYPE html>  <html> <head>   <title>index.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               index.js             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>               <p>The argument <code>integer</code> for <code>decompose</code> is... An integer. Surprise!
+
+</p>
+<p>The return value is an object with keys corresponding to the bits that are
+set to <code>1</code> in the integer.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code>var o = compost.decompose(5); // {0: true, 2: true}</code></pre>
+             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">exports</span><span class="p">.</span><span class="nx">decompose</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">decompose</span><span class="p">(</span><span class="nx">integer</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">object</span> <span class="o">=</span> <span class="p">{},</span>
+      <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="k">while</span> <span class="p">(</span><span class="nx">integer</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">integer</span> <span class="o">&amp;</span> <span class="mh">0x01</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">object</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">integer</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">object</span><span class="p">;</span>
+<span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <p>The argument here is an object with keys corresponding to bits to set in the
+integer to return. The return value is an integer, in case that wasn&#39;t
+already obvious.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code>var i = compost.compose({0: true, 2: true}); // 5</code></pre>
+             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">exports</span><span class="p">.</span><span class="nx">compose</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">compose</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">object</span><span class="p">).</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">k</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">!!</span><span class="nx">object</span><span class="p">[</span><span class="nx">k</span><span class="p">];</span>
+  <span class="p">}).</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">i</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+  <span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">};</span>
+
+</pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 

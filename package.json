@@ -1,0 +1,27 @@
+{
+  "name": "compost",
+  "version": "0.0.0",
+  "description": "Decompose and compose integers to and from lists of bits",
+  "main": "index.js",
+  "scripts": {
+    "test": "vows --spec",
+    "prepublish": "docco index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/deoxxa/compost.git"
+  },
+  "keywords": [
+    "integer",
+    "bits",
+    "compose",
+    "decompose",
+    "parse"
+  ],
+  "author": "Conrad Pankoff <deoxxa@fknsrs.biz> (http://www.fknsrs.biz/)",
+  "license": "BSD",
+  "devDependencies": {
+    "vows": "~0.6.3",
+    "docco": "~0.3.0"
+  }
+}
