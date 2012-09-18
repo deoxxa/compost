@@ -1,6 +1,6 @@
 {
   "name": "compost",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Decompose and compose integers to and from lists of bits",
   "main": "index.js",
   "scripts": {
